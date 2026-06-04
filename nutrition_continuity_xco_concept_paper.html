@@ -1,0 +1,1425 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nutrition Continuity in an Age of Systemic Volatility — XCO Concept Paper</title>
+  <meta name="description" content="A fully embedded HTML concept paper on nutrition continuity, food-system security, bioregional resilience, and transition investment.">
+  <style>
+    :root {
+      --shadow: #192640;
+      --mid: #F27F3D;
+      --highlight: #FFFFFF;
+      --line: 1.5px;
+      --texture: 0.75px;
+      --phi-major: 61.8fr;
+      --phi-minor: 38.2fr;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--shadow);
+      color: var(--highlight);
+    }
+
+    body {
+      margin: 0;
+      background: var(--shadow);
+      color: var(--highlight);
+      font-family: "Crimson Pro", serif;
+      font-size: 20px;
+      line-height: 1.54;
+      font-weight: 400;
+    }
+
+    a {
+      color: var(--highlight);
+      text-decoration: underline;
+      text-decoration-color: var(--mid);
+      text-decoration-thickness: var(--texture);
+      text-underline-offset: 4px;
+    }
+
+    a:visited {
+      color: var(--highlight);
+    }
+
+    ::selection {
+      background: var(--mid);
+      color: var(--highlight);
+    }
+
+    .page {
+      width: min(1480px, calc(100vw - 34px));
+      margin: 0 auto;
+      padding: 34px 0 89px;
+    }
+
+    .cover {
+      min-height: 92vh;
+      border: var(--line) solid var(--highlight);
+      display: grid;
+      grid-template-columns: var(--phi-major) var(--phi-minor);
+      gap: 34px;
+      padding: 55px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover::after {
+      content: "";
+      position: absolute;
+      right: -89px;
+      bottom: -89px;
+      width: 377px;
+      height: 377px;
+      border: var(--line) solid var(--mid);
+      background: repeating-linear-gradient(45deg, var(--shadow) 0 8px, var(--mid) 8px 9.5px);
+    }
+
+    .cover-mark {
+      font-family: Inter, sans-serif;
+      font-size: clamp(72px, 12vw, 180px);
+      line-height: 0.84;
+      letter-spacing: -0.08em;
+      font-weight: 500;
+      margin: 0 0 55px;
+      color: var(--highlight);
+    }
+
+    .kicker,
+    .mono,
+    .toc,
+    .caption,
+    .tag,
+    .matrix th,
+    .matrix td:first-child,
+    .layer-table th,
+    .layer-table td:first-child,
+    .source-list,
+    .data-band,
+    .meta-grid,
+    .callout .eyebrow,
+    .diagram-title,
+    .diagram-note,
+    .code-label,
+    .phase-label,
+    .risk-table th,
+    .risk-table td:first-child,
+    .footer-meta {
+      font-family: "DM Mono", monospace;
+    }
+
+    .kicker {
+      font-size: 15px;
+      line-height: 1.6;
+      letter-spacing: 0.02em;
+      margin: 0 0 34px;
+      color: var(--mid);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: Inter, sans-serif;
+      font-weight: 500;
+      letter-spacing: -0.04em;
+      color: var(--highlight);
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(54px, 7vw, 118px);
+      line-height: 0.95;
+      max-width: 11ch;
+    }
+
+    .subtitle {
+      font-size: clamp(27px, 3.4vw, 44px);
+      line-height: 1.02;
+      margin: 55px 0 0;
+      max-width: 18ch;
+      font-family: Inter, sans-serif;
+      letter-spacing: -0.04em;
+    }
+
+    .cover-aside {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-left: var(--line) solid var(--highlight);
+      padding-left: 34px;
+      z-index: 1;
+    }
+
+    .cover-summary {
+      font-size: 24px;
+      line-height: 1.22;
+      max-width: 24ch;
+      margin: 0;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 13px;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .meta-row {
+      display: grid;
+      grid-template-columns: 89px 1fr;
+      border-top: var(--texture) solid var(--highlight);
+      padding-top: 8px;
+      gap: 13px;
+    }
+
+    .meta-row b {
+      font-weight: 400;
+      color: var(--mid);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: var(--phi-minor) var(--phi-major);
+      gap: 55px;
+      margin-top: 89px;
+      align-items: start;
+    }
+
+    .toc-wrap {
+      position: sticky;
+      top: 21px;
+      align-self: start;
+      border-top: var(--line) solid var(--highlight);
+      padding-top: 21px;
+    }
+
+    .toc-title {
+      font-family: Inter, sans-serif;
+      font-size: 26px;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin: 0 0 21px;
+    }
+
+    .toc {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.45;
+      counter-reset: toc;
+    }
+
+    .toc li {
+      counter-increment: toc;
+      border-top: var(--texture) solid var(--highlight);
+      padding: 8px 0;
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 8px;
+    }
+
+    .toc li::before {
+      content: counter(toc, decimal-leading-zero);
+      color: var(--mid);
+    }
+
+    .content {
+      min-width: 0;
+    }
+
+    section {
+      margin: 0 0 89px;
+      scroll-margin-top: 21px;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 89px 1fr;
+      gap: 21px;
+      border-top: var(--line) solid var(--highlight);
+      padding-top: 21px;
+      margin-bottom: 34px;
+    }
+
+    .section-number {
+      font-family: "DM Mono", monospace;
+      font-size: 15px;
+      line-height: 1.4;
+      color: var(--mid);
+    }
+
+    h2 {
+      font-size: clamp(38px, 4.2vw, 72px);
+      line-height: 0.98;
+    }
+
+    h3 {
+      font-size: clamp(28px, 2.4vw, 38px);
+      line-height: 1.05;
+      margin: 34px 0 13px;
+    }
+
+    h4 {
+      font-size: 22px;
+      line-height: 1.15;
+      margin: 21px 0 8px;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      margin: 0 0 21px;
+    }
+
+    .lead {
+      font-size: clamp(25px, 2.4vw, 38px);
+      line-height: 1.14;
+      font-family: "Crimson Pro", serif;
+      margin-bottom: 34px;
+    }
+
+    .principle {
+      font-family: Inter, sans-serif;
+      font-size: clamp(30px, 3.2vw, 52px);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+      border-left: 13px solid var(--mid);
+      padding-left: 21px;
+      margin: 34px 0;
+    }
+
+    .callout {
+      border: var(--line) solid var(--highlight);
+      padding: 21px;
+      margin: 34px 0;
+      display: grid;
+      grid-template-columns: 144px 1fr;
+      gap: 21px;
+    }
+
+    .callout .eyebrow {
+      color: var(--mid);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .callout p {
+      font-size: 24px;
+      line-height: 1.22;
+      margin: 0;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 34px 0 0;
+    }
+
+    .tag {
+      border: var(--texture) solid var(--highlight);
+      color: var(--highlight);
+      padding: 5px 8px;
+      font-size: 12px;
+      line-height: 1.1;
+    }
+
+    .tag.risk {
+      background: var(--mid);
+      color: var(--highlight);
+      border-color: var(--mid);
+    }
+
+    .tag.field {
+      border-style: dashed;
+    }
+
+    .data-band {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 21px;
+      margin: 34px 0;
+    }
+
+    .data-card {
+      border-top: var(--line) solid var(--mid);
+      padding-top: 13px;
+      min-height: 144px;
+    }
+
+    .data-card .figure {
+      font-family: Inter, sans-serif;
+      font-size: clamp(34px, 4vw, 64px);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+      color: var(--highlight);
+      margin: 0 0 8px;
+    }
+
+    .data-card .label {
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--highlight);
+    }
+
+    .matrix,
+    .layer-table,
+    .risk-table,
+    .source-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 34px 0;
+      font-size: 17px;
+      line-height: 1.38;
+    }
+
+    .matrix th,
+    .matrix td,
+    .layer-table th,
+    .layer-table td,
+    .risk-table th,
+    .risk-table td,
+    .source-table th,
+    .source-table td {
+      border: var(--texture) solid var(--highlight);
+      padding: 13px;
+      vertical-align: top;
+    }
+
+    .matrix th,
+    .layer-table th,
+    .risk-table th,
+    .source-table th {
+      color: var(--mid);
+      text-align: left;
+      font-weight: 400;
+      font-size: 13px;
+    }
+
+    .matrix td:first-child,
+    .layer-table td:first-child,
+    .risk-table td:first-child {
+      font-size: 13px;
+      color: var(--mid);
+      width: 21%;
+    }
+
+    .source-table {
+      font-family: "DM Mono", monospace;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .source-table td:first-child {
+      color: var(--mid);
+      width: 55px;
+    }
+
+    .diagram-block {
+      border: var(--line) solid var(--highlight);
+      margin: 34px 0 55px;
+      padding: 21px;
+      background: var(--shadow);
+    }
+
+    .diagram-header {
+      display: grid;
+      grid-template-columns: var(--phi-major) var(--phi-minor);
+      gap: 21px;
+      border-bottom: var(--texture) solid var(--highlight);
+      padding-bottom: 13px;
+      margin-bottom: 21px;
+    }
+
+    .diagram-title {
+      font-size: 13px;
+      line-height: 1.35;
+      color: var(--mid);
+    }
+
+    .diagram-note {
+      font-size: 12px;
+      line-height: 1.45;
+      font-style: italic;
+    }
+
+    svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: var(--shadow);
+      shape-rendering: crispEdges;
+    }
+
+    .svg-label {
+      font-family: Inter, sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+
+    .svg-mono {
+      font-family: "DM Mono", monospace;
+      font-size: 12px;
+      font-style: italic;
+    }
+
+    .svg-small {
+      font-family: "DM Mono", monospace;
+      font-size: 11px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: var(--phi-major) var(--phi-minor);
+      gap: 34px;
+      align-items: start;
+    }
+
+    .minor-note {
+      border-top: var(--texture) dashed var(--highlight);
+      padding-top: 13px;
+      font-family: "DM Mono", monospace;
+      font-size: 13px;
+      line-height: 1.55;
+      font-style: italic;
+      color: var(--highlight);
+    }
+
+    .work-packages {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 21px;
+      margin: 34px 0;
+    }
+
+    .package {
+      border: var(--texture) solid var(--highlight);
+      padding: 21px;
+      min-height: 260px;
+    }
+
+    .package h4 {
+      margin-top: 0;
+    }
+
+    .package .code-label {
+      font-size: 12px;
+      color: var(--mid);
+      margin-bottom: 21px;
+    }
+
+    ul,
+    ol {
+      margin: 0 0 21px;
+      padding-left: 21px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .compact-list {
+      list-style: none;
+      padding-left: 0;
+      border-top: var(--texture) solid var(--highlight);
+    }
+
+    .compact-list li {
+      display: grid;
+      grid-template-columns: 144px 1fr;
+      gap: 21px;
+      border-bottom: var(--texture) solid var(--highlight);
+      padding: 13px 0;
+      margin: 0;
+    }
+
+    .compact-list .phase-label {
+      color: var(--mid);
+      font-size: 13px;
+    }
+
+    .definition-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 21px;
+      margin: 34px 0;
+    }
+
+    .definition {
+      border-top: var(--line) solid var(--highlight);
+      padding-top: 13px;
+    }
+
+    .definition h4 {
+      color: var(--mid);
+      font-family: "DM Mono", monospace;
+      font-size: 13px;
+      line-height: 1.45;
+      letter-spacing: 0;
+      margin: 0 0 13px;
+    }
+
+    .definition p {
+      font-size: 18px;
+      line-height: 1.42;
+    }
+
+    .source-list {
+      font-size: 13px;
+      line-height: 1.55;
+      list-style: none;
+      padding: 0;
+      margin: 34px 0 0;
+    }
+
+    .source-list li {
+      border-top: var(--texture) solid var(--highlight);
+      padding: 13px 0;
+      display: grid;
+      grid-template-columns: 55px 1fr;
+      gap: 21px;
+    }
+
+    .source-list span {
+      color: var(--mid);
+    }
+
+    .footer-meta {
+      border-top: var(--line) solid var(--highlight);
+      padding-top: 21px;
+      margin-top: 89px;
+      font-size: 12px;
+      line-height: 1.45;
+      display: grid;
+      grid-template-columns: var(--phi-major) var(--phi-minor);
+      gap: 21px;
+    }
+
+    sup {
+      font-family: "DM Mono", monospace;
+      font-size: 11px;
+      line-height: 0;
+    }
+
+    .break-before {
+      page-break-before: always;
+    }
+
+    @media (max-width: 980px) {
+      .cover,
+      .layout,
+      .two-col,
+      .diagram-header,
+      .footer-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .cover {
+        min-height: auto;
+        padding: 34px;
+      }
+
+      .cover-aside {
+        border-left: none;
+        border-top: var(--line) solid var(--highlight);
+        padding-left: 0;
+        padding-top: 21px;
+        gap: 34px;
+      }
+
+      .toc-wrap {
+        position: static;
+      }
+
+      .data-band,
+      .definition-grid,
+      .work-packages {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        grid-template-columns: 55px 1fr;
+      }
+    }
+
+    @media print {
+      html,
+      body {
+        background: var(--shadow);
+        color: var(--highlight);
+      }
+
+      .page {
+        width: 100%;
+        padding: 21px;
+      }
+
+      .toc-wrap {
+        position: static;
+      }
+
+      a {
+        color: var(--highlight);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="cover" id="top">
+      <div>
+        <p class="kicker">XCO / METHOD REGISTER / DUSK PRESET</p>
+        <p class="cover-mark">NC</p>
+        <h1>Nutrition Continuity in an Age of Systemic Volatility</h1>
+        <p class="subtitle">A concept paper for food-system security, bioregional resilience, and transition investment.</p>
+      </div>
+      <aside class="cover-aside">
+        <p class="cover-summary">The problem is not only food production. The problem is continuity of adequate nutrition through climate, energy, trade, labour, ecological, and financial shocks.</p>
+        <div class="meta-grid" aria-label="Document metadata">
+          <div class="meta-row"><b>Status</b><span>Stand-alone concept paper</span></div>
+          <div class="meta-row"><b>Date</b><span>June 2026</span></div>
+          <div class="meta-row"><b>Frame</b><span>Nutrition as critical security infrastructure</span></div>
+          <div class="meta-row"><b>Palette</b><span>Shadow / Midtone / Highlight</span></div>
+          <div class="meta-row"><b>Register</b><span>Specific claims. Marked uncertainty. No decorative surplus.</span></div>
+        </div>
+      </aside>
+    </header>
+
+    <main class="layout">
+      <nav class="toc-wrap" aria-label="Table of contents">
+        <p class="toc-title">Contents</p>
+        <ol class="toc">
+          <li><a href="#executive-summary">Executive summary</a></li>
+          <li><a href="#purpose">Purpose and use</a></li>
+          <li><a href="#core-proposition">Core proposition</a></li>
+          <li><a href="#verification">Verification base</a></li>
+          <li><a href="#volatility-engine">Coupled volatility engine</a></li>
+          <li><a href="#nutrition-continuity">Strategic reframe</a></li>
+          <li><a href="#stack">Nutrition-resilience stack</a></li>
+          <li><a href="#layers">Layer detail</a></li>
+          <li><a href="#security-economics">Security economics</a></li>
+          <li><a href="#macro">Macro frame</a></li>
+          <li><a href="#investment-gap">Investment gap</a></li>
+          <li><a href="#governance">Governance model</a></li>
+          <li><a href="#innovation">Innovation agenda</a></li>
+          <li><a href="#measurement">Measurement</a></li>
+          <li><a href="#roadmap">Roadmap</a></li>
+          <li><a href="#risks">Risks and traps</a></li>
+          <li><a href="#pilot">Pilot concept</a></li>
+          <li><a href="#conclusion">Conclusion</a></li>
+          <li><a href="#sources">Sources</a></li>
+        </ol>
+      </nav>
+
+      <article class="content">
+        <section id="executive-summary">
+          <div class="section-head">
+            <div class="section-number">01</div>
+            <h2>Executive summary</h2>
+          </div>
+          <p class="lead">The coming nutrition crisis is not a single-sector food-production problem. It is a coupled volatility problem. Climate instability, soil degradation, fossil-input dependency, fertiliser and energy shocks, labour constraints, trade disruption, household purchasing-power stress, and weak preparedness are starting to reinforce one another.</p>
+          <p>The food system has been designed for low prices, high throughput, narrow crop specialisation, global sourcing, fossil inputs, just-in-time logistics, and externalised land damage. That system can produce abundance when baseline conditions hold. It becomes fragile when several baselines move at the same time.</p>
+          <p>The strategic task is to move from a food-supply frame to a nutrition-continuity frame. The test is not only whether a region can produce or import food in normal years. The test is whether it can maintain a minimum nutritious diet through drought, flood, heat, fertiliser disruption, fuel disruption, labour shortfall, export restrictions, crop disease, animal disease, cyberattack, financial stress, and household income shock.</p>
+          <div class="principle">The question is not: how do we make food cheapest today? The question is: how do we guarantee adequate nutrition when the operating assumptions fail?</div>
+          <p>The response must be a portfolio: land repair, soil-building production, fertility sovereignty, distributed civic food systems, semi-controlled environments, targeted fully controlled production, protein diversification, strategic reserves, real-time risk intelligence, affordability protection, and security economics that pays for capacity before failure.</p>
+          <div class="data-band" aria-label="Key numbers">
+            <div class="data-card"><p class="figure">266m</p><p class="label">people in 47 food-crisis countries and territories faced high acute food insecurity in 2025.<sup><a href="#s2">2</a></sup></p></div>
+            <div class="data-card"><p class="figure">40%</p><p class="label">of the planet's land is estimated to be degraded, directly affecting half of humanity.<sup><a href="#s5">5</a></sup></p></div>
+            <div class="data-card"><p class="figure">31%</p><p class="label">projected average rise in fertiliser prices in 2026, with affordability at its weakest since 2022.<sup><a href="#s4">4</a></sup></p></div>
+            <div class="data-card"><p class="figure">80%</p><p class="label">likelihood of El Niño during June-August 2026, according to the WMO update of 2 June 2026.<sup><a href="#s3">3</a></sup></p></div>
+          </div>
+        </section>
+
+        <section id="purpose">
+          <div class="section-head">
+            <div class="section-number">02</div>
+            <h2>Purpose and use of this concept paper</h2>
+          </div>
+          <p>This paper structures a systems-security thesis for nutrition continuity. It is intended for governments, city-regions, investors, health systems, food companies, insurers, emergency planners, land managers, research institutions, and civic organisations that need a practical frame for action under volatility.</p>
+          <p>The paper has four purposes.</p>
+          <ul class="compact-list">
+            <li><span class="phase-label">diagnosis</span><span>Define the crisis as coupled volatility across climate, land, energy, labour, trade, and income, rather than as a narrow output deficit.</span></li>
+            <li><span class="phase-label">architecture</span><span>Set out a layered nutrition-resilience stack that covers long-term land function, near-term supply buffering, and emergency continuity.</span></li>
+            <li><span class="phase-label">finance</span><span>Explain why markets underpay for redundancy, land repair, spare capacity, and affordability protection, and specify security-economics tools.</span></li>
+            <li><span class="phase-label">execution</span><span>Define governance, metrics, roadmaps, and a pilot structure for bioregional nutrition-continuity planning.</span></li>
+          </ul>
+          <div class="callout">
+            <div class="eyebrow">USE CASE</div>
+            <p>Use this note as a basis for a policy brief, investment thesis, bioregional planning mandate, national food-security strategy, civic food programme, or institutional procurement redesign.</p>
+          </div>
+        </section>
+
+        <section id="core-proposition">
+          <div class="section-head">
+            <div class="section-number">03</div>
+            <h2>Core proposition</h2>
+          </div>
+          <p class="lead">Food security must now be treated as a civil-continuity function. Nutrition is not only a welfare outcome. It is critical infrastructure.</p>
+          <p>The old operating model assumed that climate zones, seasons, labour availability, energy access, fertiliser supply, shipping routes, trade rules, insurance, and consumer purchasing power would remain within manageable bounds. The new condition is different. These variables can now move together.</p>
+          <p>When several stressors move together, the result is not an ordinary supply shock. It is a synchronised volatility event. A fertiliser price spike raises farm input costs. A heatwave lowers yields. A port disruption slows imports. A labour shortage prevents harvest. A household income shock reduces access. A food-price rise creates political stress. Each driver magnifies the others.</p>
+          <p>The resulting policy frame is:</p>
+          <div class="principle">Can every bioregion maintain adequate, affordable, culturally acceptable nutrition through climate, energy, trade, labour, ecological, and financial shocks?</div>
+          <p>That question forces a different system design. It asks not only for tonnes, yields, and prices, but for reserves, diversity, redundancy, land function, water retention, local processing, input sovereignty, protected production, protein diversity, social protection, public trust, and shock logistics.</p>
+          <div class="definition-grid">
+            <div class="definition"><h4>Nutrition continuity</h4><p>The capacity to maintain a minimum nutritious diet through disruption. It includes calories, protein, fats, micronutrients, fresh produce, infant and maternal nutrition, culturally acceptable diets, safe water, storage, processing, cooking energy, logistics, and purchasing power.</p></div>
+            <div class="definition"><h4>Bioregion</h4><p>A planning unit defined by soils, watersheds, climate envelopes, land use, logistics, labour, diets, and ecological capacity. Administrative borders matter, but they do not define carrying capacity.</p></div>
+            <div class="definition"><h4>Security economics</h4><p>An economic frame for capacities that markets underprice: reserves, redundancy, ecological repair, input sovereignty, transition income, affordability protection, and avoided breakdown.</p></div>
+          </div>
+        </section>
+
+        <section id="verification">
+          <div class="section-head">
+            <div class="section-number">04</div>
+            <h2>Verification base</h2>
+          </div>
+          <p>The source argument is directionally strong. The evidence supports the claim that climate, land, energy, labour, trade, and access risks are coupling. Several claims require careful language.</p>
+          <table class="matrix">
+            <thead>
+              <tr><th>Claim area</th><th>Verified position</th><th>Planning implication</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Food crisis</td><td>Acute food insecurity remained severe in 2025: about 266 million people in 47 food-crisis countries and territories faced high acute food insecurity.<sup><a href="#s2">2</a></sup> The driver mix includes conflict, economic shocks, displacement, climate shocks, and institutional weakness.</td><td>Do not frame the crisis as climate-only. Frame climate as a threat multiplier inside a broader political-economic failure field.</td></tr>
+              <tr><td>Climate</td><td>The IPCC states that climate change negatively affects all four pillars of food security: availability, access, utilisation, and stability.<sup><a href="#s1">1</a></sup> WMO states that El Niño conditions are developing in 2026 and can increase extreme weather risk.<sup><a href="#s3">3</a></sup></td><td>Planning must use compound-shock scenarios, not mean-climate assumptions.</td></tr>
+              <tr><td>Bioregion shift</td><td>The claim that bioregions shift by about 100 miles should be replaced with a variable climate-envelope shift. Climate Central reports northward and upslope shifts in planting zones, with one cited study estimating annual minimum temperature zones shifting north by about 13 miles per decade under continued carbon pollution.<sup><a href="#s6">6</a></sup></td><td>Crop suitability, pests, insurance, seed selection, and water planning require rolling updates.</td></tr>
+              <tr><td>Soil</td><td>UNEP, citing the UNCCD, reports that up to 40% of global land is degraded, directly affecting half of humanity.<sup><a href="#s5">5</a></sup></td><td>Soil and water function should be treated as food-security infrastructure.</td></tr>
+              <tr><td>Fertiliser</td><td>Ammonia production depends heavily on fossil fuels and accounts for around 2% of total final energy consumption.<sup><a href="#s7">7</a></sup> The World Bank reports major fertiliser price stress in 2026.<sup><a href="#s4">4</a></sup></td><td>Fertility sovereignty is a security objective, not only an environmental objective.</td></tr>
+              <tr><td>Trade</td><td>IFPRI maintains a tracker for food and fertiliser export restrictions, showing their impact on imported calories and crisis dynamics.<sup><a href="#s8">8</a></sup></td><td>Trade remains necessary, but unbuffered import dependency is a failure mode.</td></tr>
+              <tr><td>Labour</td><td>OECD analysis reports that more than a quarter of people working in agriculture in OECD member countries are over 55, and that the sector faces skills and human-capital constraints.<sup><a href="#s9">9</a></sup></td><td>Automation helps, but workforce renewal and technical training are core resilience functions.</td></tr>
+              <tr><td>Access</td><td>SOFI 2025 states that elevated food-price inflation has undermined purchasing power and access to healthy diets, especially among low-income populations.<sup><a href="#s10">10</a></sup></td><td>Nutrition security cannot rely on market clearing when households cannot pay.</td></tr>
+              <tr><td>Controlled production</td><td>CEA can raise yields and conserve water for specific crops, but it is energy-intensive and not suited to bulk staples under current economics.<sup><a href="#s11">11</a></sup><sup><a href="#s12">12</a></sup></td><td>Use fully controlled environments as strategic buffers, not as a general replacement for land-based food.</td></tr>
+            </tbody>
+          </table>
+          <p class="minor-note">// [inference] The source note's central claim is strongest when stated as coupled volatility rather than as a single causal chain. The corrections above strengthen the note without weakening its strategic force.</p>
+        </section>
+
+        <section id="volatility-engine">
+          <div class="section-head">
+            <div class="section-number">05</div>
+            <h2>The coupled volatility engine</h2>
+          </div>
+          <p class="lead">The core risk is synchronisation. Food systems can often absorb one stressor. They become unstable when climate, energy, trade, labour, and income stress compound.</p>
+          <p>Climate stress changes rainfall, temperature, pest ranges, disease patterns, water availability, and harvest reliability. Land degradation reduces the soil's capacity to buffer those shocks. Fertiliser and fuel volatility raise production and logistics costs. Trade restrictions transmit domestic panic into global scarcity. Labour shortfalls reduce the system's ability to harvest, repair, adapt, and transition. Household income stress converts price inflation into diet-quality decline.</p>
+
+          <div class="diagram-block" role="img" aria-label="Diagram of coupled volatility engine">
+            <div class="diagram-header">
+              <div class="diagram-title">DIAGRAM 01 / COUPLED VOLATILITY ENGINE</div>
+              <div class="diagram-note">// [inference] risk rises non-linearly when stressors synchronise. Diagram uses one risk node, field nodes, structural lines, and marked uncertainty.</div>
+            </div>
+            <svg viewBox="0 0 1080 640" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="arrow-white" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                  <path d="M0,0 L0,6 L9,3 z" fill="#FFFFFF" />
+                </marker>
+                <pattern id="hatch-mid" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                  <rect width="10" height="10" fill="#192640" />
+                  <line x1="0" y1="0" x2="0" y2="10" stroke="#F27F3D" stroke-width="1.5" />
+                </pattern>
+                <pattern id="hatch-white" width="13" height="13" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                  <rect width="13" height="13" fill="#192640" />
+                  <line x1="0" y1="0" x2="0" y2="13" stroke="#FFFFFF" stroke-width="0.75" />
+                </pattern>
+              </defs>
+
+              <line x1="42" y1="112" x2="1038" y2="112" stroke="#FFFFFF" stroke-width="0.75" stroke-dasharray="8 8" />
+              <text x="42" y="98" fill="#F27F3D" class="svg-mono">macro</text>
+              <line x1="42" y1="318" x2="1038" y2="318" stroke="#FFFFFF" stroke-width="0.75" stroke-dasharray="8 8" />
+              <text x="42" y="304" fill="#F27F3D" class="svg-mono">bioregion</text>
+              <line x1="42" y1="524" x2="1038" y2="524" stroke="#FFFFFF" stroke-width="0.75" stroke-dasharray="8 8" />
+              <text x="42" y="510" fill="#F27F3D" class="svg-mono">household</text>
+
+              <rect x="405" y="245" width="270" height="120" fill="#F27F3D" stroke="#FFFFFF" stroke-width="1.5" />
+              <text x="540" y="292" fill="#FFFFFF" text-anchor="middle" class="svg-label">compound</text>
+              <text x="540" y="318" fill="#FFFFFF" text-anchor="middle" class="svg-label">nutrition volatility</text>
+              <text x="540" y="342" fill="#FFFFFF" text-anchor="middle" class="svg-small">risk node / use sparingly</text>
+
+              <rect x="116" y="70" width="210" height="74" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1.5" />
+              <text x="221" y="103" fill="#192640" text-anchor="middle" class="svg-label">climate envelope</text>
+              <text x="221" y="126" fill="#192640" text-anchor="middle" class="svg-small">heat / rainfall / pests</text>
+
+              <rect x="752" y="70" width="210" height="74" fill="#192640" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="9 6" />
+              <text x="857" y="103" fill="#FFFFFF" text-anchor="middle" class="svg-label">soil + water</text>
+              <text x="857" y="126" fill="#FFFFFF" text-anchor="middle" class="svg-small">buffer capacity</text>
+
+              <rect x="80" y="250" width="236" height="86" fill="url(#hatch-white)" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="9 6" />
+              <text x="198" y="285" fill="#FFFFFF" text-anchor="middle" class="svg-label">fertiliser + energy</text>
+              <text x="198" y="310" fill="#FFFFFF" text-anchor="middle" class="svg-small">gas / diesel / urea</text>
+
+              <rect x="764" y="250" width="236" height="86" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1.5" />
+              <text x="882" y="285" fill="#192640" text-anchor="middle" class="svg-label">trade + logistics</text>
+              <text x="882" y="310" fill="#192640" text-anchor="middle" class="svg-small">ports / bans / insurance</text>
+
+              <rect x="116" y="468" width="210" height="74" fill="#192640" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="9 6" />
+              <text x="221" y="501" fill="#FFFFFF" text-anchor="middle" class="svg-label">labour capacity</text>
+              <text x="221" y="524" fill="#FFFFFF" text-anchor="middle" class="svg-small">ageing / skills / harvest</text>
+
+              <rect x="752" y="468" width="210" height="74" fill="url(#hatch-mid)" stroke="#F27F3D" stroke-width="1.5" />
+              <text x="857" y="501" fill="#FFFFFF" text-anchor="middle" class="svg-label">purchasing power</text>
+              <text x="857" y="524" fill="#FFFFFF" text-anchor="middle" class="svg-small">access / diet quality</text>
+
+              <line x1="326" y1="124" x2="405" y2="260" stroke="#FFFFFF" stroke-width="1.5" marker-end="url(#arrow-white)" />
+              <line x1="752" y1="124" x2="675" y2="260" stroke="#FFFFFF" stroke-width="1.5" marker-end="url(#arrow-white)" />
+              <line x1="316" y1="293" x2="405" y2="293" stroke="#FFFFFF" stroke-width="1.5" marker-end="url(#arrow-white)" />
+              <line x1="764" y1="293" x2="675" y2="293" stroke="#FFFFFF" stroke-width="1.5" marker-end="url(#arrow-white)" />
+              <line x1="326" y1="500" x2="405" y2="350" stroke="#FFFFFF" stroke-width="1.5" marker-end="url(#arrow-white)" />
+              <line x1="752" y1="500" x2="675" y2="350" stroke="#FFFFFF" stroke-width="1.5" marker-end="url(#arrow-white)" />
+
+              <path d="M226 167 L226 212 L145 212" fill="none" stroke="#FFFFFF" stroke-width="0.75" stroke-dasharray="6 6" />
+              <text x="72" y="202" fill="#FFFFFF" class="svg-mono">[unverified] speed varies by crop, elevation, and water.</text>
+              <path d="M857 448 L857 410 L972 410" fill="none" stroke="#FFFFFF" stroke-width="0.75" stroke-dasharray="6 6" />
+              <text x="724" y="402" fill="#FFFFFF" class="svg-mono">[inference] access shock converts price into rationing.</text>
+            </svg>
+          </div>
+
+          <h3>Climate instability</h3>
+          <p>Climate change changes the reliability of growing seasons, crop suitability, pest and disease ranges, and harvest windows. The IPCC food-security frame is useful because it does not stop at production: climate affects availability, access, utilisation, and stability.<sup><a href="#s1">1</a></sup></p>
+          <p>The term “super El Niño” should be used with care. WMO states that it does not use “super El Niño” as a standard operational classification.<sup><a href="#s3">3</a></sup> The policy-relevant point is still sharp: ENSO events can increase the probability of drought, heavy rainfall, and heat stress, and climate change can amplify associated impacts by loading the atmosphere and ocean with more heat and moisture.</p>
+
+          <h3>Land degradation</h3>
+          <p>Degraded land has lower water-retention capacity, weaker nutrient cycling, lower biological activity, and less capacity to buffer extremes. A dry year on living soil is not the same event as a dry year on compacted soil. A heavy-rainfall event over restored floodplains and intact wetlands is not the same event as heavy rainfall over sealed, drained, or eroded catchments.</p>
+
+          <h3>Hydrocarbon input dependency</h3>
+          <p>Food systems are exposed to fossil-energy volatility through fertiliser, diesel, processing, transport, cold chains, and packaging. Nitrogen fertiliser is the central exposure. The IEA describes ammonia production as heavily fossil-fuel dependent and highly energy intensive.<sup><a href="#s7">7</a></sup></p>
+
+          <h3>Trade and logistics</h3>
+          <p>Trade remains necessary. The risk is unbuffered dependency. If imported calories, feed, fertiliser, seed, fuel, or packaging move through narrow routes or a small number of suppliers, a food system can lose nutrition continuity even where global supply remains adequate in aggregate.</p>
+
+          <h3>Labour and demographic stress</h3>
+          <p>The transition requires more skill, not less: soil assessment, protected horticulture, agroforestry establishment, repair, machinery maintenance, robotics supervision, circular nutrients, food processing, food-safety compliance, and emergency distribution. Labour shortages and an ageing agricultural workforce constrain both current production and transition capacity.<sup><a href="#s9">9</a></sup></p>
+
+          <h3>Access and the social contract</h3>
+          <p>Food inflation is not only an economic indicator. For households with low savings, it is a rationing mechanism. Diet diversity, protein, fresh produce, and micronutrient-rich foods are often reduced before calories disappear. This makes nutrition continuity inseparable from social legitimacy.</p>
+        </section>
+
+        <section id="nutrition-continuity">
+          <div class="section-head">
+            <div class="section-number">06</div>
+            <h2>Strategic reframe: from food security to nutrition continuity</h2>
+          </div>
+          <p class="lead">Food security asks whether food exists and whether people can access it. Nutrition continuity asks whether a system can maintain a nutritional floor through failure modes.</p>
+          <p>The reframe matters because calories can mask malnutrition. A population can receive enough calories and still lose protein adequacy, micronutrient sufficiency, maternal health, infant nutrition, fresh produce, diet diversity, and disease resilience.</p>
+          <p>A nutrition-continuity system must secure:</p>
+          <ul>
+            <li>adequate calories;</li>
+            <li>affordable protein;</li>
+            <li>healthy fats;</li>
+            <li>fresh fruit and vegetables;</li>
+            <li>micronutrients;</li>
+            <li>maternal, infant, elderly, and medical nutrition;</li>
+            <li>culturally acceptable diets;</li>
+            <li>safe water and cooking energy;</li>
+            <li>storage, processing, packaging, and cold-chain capacity;</li>
+            <li>labour, seeds, fertility, feed, water, logistics, and repair capacity;</li>
+            <li>household purchasing power.</li>
+          </ul>
+          <table class="layer-table">
+            <thead><tr><th>Dimension</th><th>Continuity question</th><th>Failure signal</th></tr></thead>
+            <tbody>
+              <tr><td>production</td><td>Can the region produce or source enough diverse food under climate and input stress?</td><td>Yield volatility, crop loss, low reserve drawdown capacity, input shortage.</td></tr>
+              <tr><td>access</td><td>Can households afford and physically obtain a nutritious diet?</td><td>Food inflation, fresh-food deserts, rising food-bank use, diet-quality decline.</td></tr>
+              <tr><td>nutrition</td><td>Can diet quality be maintained, not just calories?</td><td>Protein gaps, anaemia, child wasting, obesity plus micronutrient deficiency.</td></tr>
+              <tr><td>inputs</td><td>Can soil, fertility, water, energy, seeds, feed, labour, and logistics be maintained?</td><td>Fertiliser spikes, diesel shortages, seed dependence, labour non-availability.</td></tr>
+              <tr><td>institutions</td><td>Can public authorities coordinate reserves, procurement, transfers, and emergency distribution?</td><td>Delayed response, panic buying, duplicated effort, political blame cycles.</td></tr>
+            </tbody>
+          </table>
+          <div class="callout">
+            <div class="eyebrow">MINIMUM TEST</div>
+            <p>Under the next three plausible compound shocks, can the region still feed people nutritiously, affordably, and fairly?</p>
+          </div>
+        </section>
+
+        <section id="stack">
+          <div class="section-head">
+            <div class="section-number">07</div>
+            <h2>The nutrition-resilience stack</h2>
+          </div>
+          <p class="lead">The response cannot be a single model of farming, a single technology, a single diet, or a single market reform. It must be a stack.</p>
+          <p>Each layer addresses a different failure mode and operates on a different time horizon. The long layers restore carrying capacity. The medium layers build production diversity and input sovereignty. The short layers protect access and buy time during shocks.</p>
+
+          <div class="diagram-block" role="img" aria-label="Diagram of nutrition resilience stack">
+            <div class="diagram-header">
+              <div class="diagram-title">DIAGRAM 02 / NUTRITION-RESILIENCE STACK</div>
+              <div class="diagram-note">// Stacked rectangles. Hatching marks constrained layers. Ticks mark multi-solve contribution: feeds / cools / stores / protects / trains / stabilises.</div>
+            </div>
+            <svg viewBox="0 0 1080 790" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="hatch-stack" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                  <rect width="12" height="12" fill="#192640" />
+                  <line x1="0" y1="0" x2="0" y2="12" stroke="#FFFFFF" stroke-width="0.75" />
+                </pattern>
+                <pattern id="hatch-stack-mid" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                  <rect width="8" height="8" fill="#192640" />
+                  <line x1="0" y1="0" x2="0" y2="8" stroke="#F27F3D" stroke-width="0.75" />
+                </pattern>
+              </defs>
+              <text x="42" y="48" fill="#F27F3D" class="svg-mono">deep base → tactical buffer → household access</text>
+              <line x1="42" y1="64" x2="1038" y2="64" stroke="#FFFFFF" stroke-width="0.75" stroke-dasharray="8 8" />
+
+              <g class="svg-label">
+                <rect x="104" y="92" width="872" height="52" fill="#192640" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="9 6" />
+                <text x="130" y="125" fill="#FFFFFF">01 bioregional ecological repair</text>
+                <line x1="902" y1="108" x2="940" y2="108" stroke="#F27F3D" stroke-width="1.5" />
+                <line x1="902" y1="119" x2="940" y2="119" stroke="#F27F3D" stroke-width="1.5" />
+                <line x1="902" y1="130" x2="940" y2="130" stroke="#F27F3D" stroke-width="1.5" />
+
+                <rect x="104" y="154" width="816" height="52" fill="url(#hatch-stack)" stroke="#FFFFFF" stroke-width="1.5" />
+                <text x="130" y="187" fill="#FFFFFF">02 soil-building diversified production</text>
+                <line x1="846" y1="170" x2="884" y2="170" stroke="#F27F3D" stroke-width="1.5" />
+                <line x1="846" y1="181" x2="884" y2="181" stroke="#F27F3D" stroke-width="1.5" />
+                <line x1="846" y1="192" x2="884" y2="192" stroke="#F27F3D" stroke-width="1.5" />
+
+                <rect x="104" y="216" width="760" height="52" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1.5" />
+                <text x="130" y="249" fill="#192640">03 fertility and input sovereignty</text>
+                <line x1="790" y1="232" x2="828" y2="232" stroke="#F27F3D" stroke-width="1.5" />
+                <line x1="790" y1="243" x2="828" y2="243" stroke="#F27F3D" stroke-width="1.5" />
+
+                <rect x="104" y="278" width="704" height="52" fill="#192640" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="9 6" />
+                <text x="130" y="311" fill="#FFFFFF">04 distributed civic food systems</text>
+                <line x1="734" y1="294" x2="772" y2="294" stroke="#F27F3D" stroke-width="1.5" />
+                <line x1="734" y1="305" x2="772" y2="305" stroke="#F27F3D" stroke-width="1.5" />
+                <line x1="734" y1="316" x2="772" y2="316" stroke="#F27F3D" stroke-width="1.5" />
+
+                <rect x="104" y="340" width="648" height="52" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1.5" />
+                <text x="130" y="373" fill="#192640">05 semi-controlled environment agriculture</text>
+                <line x1="678" y1="356" x2="716" y2="356" stroke="#F27F3D" stroke-width="1.5" />
+                <line x1="678" y1="367" x2="716" y2="367" stroke="#F27F3D" stroke-width="1.5" />
+
+                <rect x="104" y="402" width="592" height="52" fill="url(#hatch-stack-mid)" stroke="#F27F3D" stroke-width="1.5" />
+                <text x="130" y="435" fill="#FFFFFF">06 fully controlled environments</text>
+                <line x1="622" y1="418" x2="660" y2="418" stroke="#F27F3D" stroke-width="1.5" />
+
+                <rect x="104" y="464" width="536" height="52" fill="#192640" stroke="#FFFFFF" stroke-width="1.5" />
+                <text x="130" y="497" fill="#FFFFFF">07 protein diversification</text>
+                <line x1="566" y1="480" x2="604" y2="480" stroke="#F27F3D" stroke-width="1.5" />
+                <line x1="566" y1="491" x2="604" y2="491" stroke="#F27F3D" stroke-width="1.5" />
+
+                <rect x="104" y="526" width="480" height="52" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1.5" />
+                <text x="130" y="559" fill="#192640">08 strategic reserves and logistics</text>
+                <line x1="510" y1="542" x2="548" y2="542" stroke="#F27F3D" stroke-width="1.5" />
+                <line x1="510" y1="553" x2="548" y2="553" stroke="#F27F3D" stroke-width="1.5" />
+
+                <rect x="104" y="588" width="424" height="52" fill="#192640" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="9 6" />
+                <text x="130" y="621" fill="#FFFFFF">09 intelligence and early warning</text>
+                <line x1="454" y1="604" x2="492" y2="604" stroke="#F27F3D" stroke-width="1.5" />
+
+                <rect x="104" y="650" width="368" height="52" fill="#F27F3D" stroke="#FFFFFF" stroke-width="1.5" />
+                <text x="130" y="683" fill="#FFFFFF">10 security economics and finance</text>
+                <line x1="398" y1="666" x2="436" y2="666" stroke="#FFFFFF" stroke-width="1.5" />
+                <line x1="398" y1="677" x2="436" y2="677" stroke="#FFFFFF" stroke-width="1.5" />
+              </g>
+
+              <text x="730" y="735" fill="#FFFFFF" class="svg-mono">[inference] no layer is sufficient alone.</text>
+              <text x="730" y="756" fill="#FFFFFF" class="svg-mono">Portfolio depth is the resilience property.</text>
+            </svg>
+          </div>
+
+          <table class="layer-table">
+            <thead><tr><th>Layer</th><th>Core function</th><th>What it covers</th></tr></thead>
+            <tbody>
+              <tr><td>01</td><td>Bioregional ecological repair</td><td>Long-term carrying capacity: soil, water, biodiversity, pollination, flood buffering, drought buffering.</td></tr>
+              <tr><td>02</td><td>Soil-building diversified production</td><td>Main food base: mixed rotations, pulses, perennials, integrated livestock where suitable, agroforestry, low-input systems.</td></tr>
+              <tr><td>03</td><td>Fertility and input sovereignty</td><td>Reduced dependency on gas-linked nitrogen, imported fertiliser, imported feed, diesel, and single suppliers.</td></tr>
+              <tr><td>04</td><td>Distributed civic food systems</td><td>Skills, trust, public legitimacy, local nutrition, mutual aid, community kitchens, gardens, seed libraries, local processing.</td></tr>
+              <tr><td>05</td><td>Semi-controlled environments</td><td>Protected horticulture, nurseries, passive greenhouses, shade systems, rainwater-fed production, peri-urban supply.</td></tr>
+              <tr><td>06</td><td>Fully controlled environments</td><td>High-reliability production for greens, seedlings, mushrooms, high-value micronutrient crops, hospitals, defence, islands, deserts, and emergency production.</td></tr>
+              <tr><td>07</td><td>Protein diversification</td><td>Pulses, plant proteins, lower-impact livestock where suitable, aquaculture, mycoprotein, microbial protein, algae, fermentation-derived ingredients.</td></tr>
+              <tr><td>08</td><td>Strategic reserves and logistics</td><td>Shock absorption: grains, pulses, oils, infant and medical nutrition, seeds, fertility inputs, feed buffers, packaging, cold chain, spare parts.</td></tr>
+              <tr><td>09</td><td>Intelligence and early warning</td><td>Real-time monitoring of price, climate, fertiliser, trade, water, crop, labour, disease, logistics, and household stress.</td></tr>
+              <tr><td>10</td><td>Security economics and finance</td><td>Capacity payments, procurement, transition guarantees, resilience bonds, targeted affordability protection, insurance redesign.</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="layers">
+          <div class="section-head">
+            <div class="section-number">08</div>
+            <h2>Layer detail</h2>
+          </div>
+          <h3>01. Bioregional ecological repair</h3>
+          <p>The foundation is the restoration of natural food infrastructure: soils, watersheds, wetlands, floodplains, woodlands, hedgerows, grasslands, pollinator habitats, microbial systems, and biodiversity corridors. This layer includes soil organic matter restoration, erosion control, cover cropping, agroforestry, perennial systems, landscape rehydration, wetland and floodplain restoration, seed diversity, and climate-suitability mapping.</p>
+          <p>This is the slowest layer. It is also the most important. Without it, every other layer becomes a more expensive compensation mechanism for land decline.</p>
+
+          <h3>02. Soil-building and diversified production</h3>
+          <p>The second layer is the redesign of the production base around yield stability, diet quality, fertility cycling, water retention, labour viability, and regional resilience. It includes mixed farming systems, rotations, legumes, pulses, integrated livestock where ecologically suitable, perennial crops, reduced tillage where suitable, biological pest control, compost systems, manure logistics, local seed systems, and reduced synthetic-input dependence.</p>
+          <p>Terra preta-inspired thinking belongs here as a design principle: long-lived fertility built from carbon-rich organic matter, microbial life, nutrient retention, and circular waste streams. It should not be framed as a simple copy of Amazonian dark earths across all soils.</p>
+
+          <h3>03. Fertility and input sovereignty</h3>
+          <p>Fertility sovereignty is a security issue. The aim is not to stop synthetic fertiliser immediately. The aim is to reduce the degree to which nutrition security depends on gas markets, fertiliser plants, shipping routes, and geopolitical pressure.</p>
+          <p>Priority actions include legumes, biological nitrogen fixation, cover crops, composting infrastructure, anaerobic digestion, nutrient recovery from wastewater, manure processing and logistics, biochar from genuine residues, green ammonia where energy and cost conditions support it, local soil testing, regional fertility budgets, and circular nutrient systems.</p>
+
+          <h3>04. Distributed civic food systems</h3>
+          <p>Allotments, community gardens, school gardens, edible public landscapes, peri-urban horticulture, local food hubs, community kitchens, seed libraries, neighbourhood composting, public food education, local processing, and community-supported agriculture will not feed entire countries alone. Their value is different. They build skills, legitimacy, mutual aid, diet diversity, mental health, and mobilisation capacity during shocks.</p>
+
+          <h3>05. Semi-controlled environment agriculture</h3>
+          <p>Semi-controlled systems include polytunnels, passive greenhouses, shade houses, rainwater-fed protected horticulture, cold frames, low-energy glasshouses, seedling nurseries, controlled irrigation, and climate-buffered peri-urban production. These systems can extend growing seasons, reduce exposure to heavy rain, wind, frost, drought, and heat, and improve fresh-produce reliability without the full energy load of sealed indoor farms.</p>
+
+          <h3>06. Fully controlled environment agriculture</h3>
+          <p>Fully controlled environments include vertical farms, hydroponics, aeroponics, climate-controlled nurseries, mushroom systems, aquaponics, and plant factories. They can increase yields and water efficiency for specific crops.<sup><a href="#s11">11</a></sup> They are also energy-intensive and weak for bulk staples under current economics.<sup><a href="#s12">12</a></sup></p>
+          <p>Use fully controlled environments as strategic infrastructure: leafy greens, herbs, seedlings, mushrooms, high-value micronutrient crops, research and breeding, hospital and defence estates, islands, deserts, Arctic regions, crisis settings, and emergency production. Do not treat them as a full replacement for land-based agriculture.</p>
+
+          <h3>07. Protein diversification</h3>
+          <p>Protein security requires its own strategy. Current protein systems are exposed to imported feed, land pressure, animal disease, fertiliser-intensive feed crops, climate impacts on pasture and fisheries, and political resistance to diet change.</p>
+          <p>A resilient protein mix should include pulses, beans, peas, lentils, oats, nuts where appropriate, ecologically appropriate livestock systems, sustainable aquaculture, mycoprotein, microbial protein, algae, plant-based proteins, fermentation-derived ingredients, and other novel proteins where safe, nutritious, affordable, and socially acceptable. FAO identifies alternative proteins as including microbial proteins such as microalgae and mycoproteins, insect-based proteins, cell-based meat, plant-based meat substitutes, and dairy alternatives.<sup><a href="#s13">13</a></sup></p>
+
+          <h3>08. Strategic reserves and continuity logistics</h3>
+          <p>Reserves must move beyond grain alone. A serious strategic nutrition reserve should include grains, pulses, oils and fats, infant nutrition, medical nutrition, seeds, fertility inputs, animal feed buffers where needed, water-treatment capacity, packaging, cold-chain redundancy, spare parts, fuel and energy contingencies, emergency kitchens, and distribution infrastructure.</p>
+          <p>The objective is not permanent state control of food markets. The objective is shock absorption: buying time when climate events, price spikes, logistics failure, conflict, cyberattack, disease outbreaks, or export restrictions disrupt normal supply.</p>
+
+          <h3>09. Intelligence and early warning</h3>
+          <p>Nutrition continuity requires a real-time operating picture. Governments and regions should monitor food-price inflation, fertiliser prices, energy pass-through, import dependency, household food insecurity, affordability of healthy diets, crop conditions, water stress, soil indicators, livestock disease, fisheries stress, port and logistics risk, labour availability, reserve levels, and climate forecasts.</p>
+          <p>The system should connect meteorological agencies, agricultural ministries, health systems, social protection agencies, emergency planners, farmers, logistics providers, retailers, processors, and community organisations.</p>
+
+          <h3>10. Security economics and finance</h3>
+          <p>Markets price transactions. They do not reliably price continuity, redundancy, land repair, strategic reserves, social trust, nutrition equity, or avoided breakdown. This creates underinvestment in the capacities that matter during stress.</p>
+          <p>Security economics pays for readiness before failure: capacity payments, procurement anchors, resilience bonds, farmer transition guarantees, insurance redesign, automatic affordability protection, and reserve finance.</p>
+        </section>
+
+        <section id="security-economics">
+          <div class="section-head">
+            <div class="section-number">09</div>
+            <h2>Security economics</h2>
+          </div>
+          <p class="lead">Food markets are necessary. They are not sufficient. They do not price the continuity value of capacities that are idle until crisis.</p>
+          <p>A market-only transition will underprovide spare capacity, soil repair, seed diversity, local processing, reserve stock, protected production, farmer transition income, cold-chain redundancy, and targeted affordability protection. These capacities are partly public goods, partly security goods, and partly social-contract goods.</p>
+          <div class="principle">Nutrition continuity value = market food value + avoided emergency cost + avoided health cost + avoided social rupture + avoided import exposure + carrying-capacity gain.</div>
+
+          <h3>Nutrition Continuity Obligations</h3>
+          <p>Each region should define a minimum nutritional floor and test it against compound shocks: drought, flood, heatwave, fertiliser shock, energy shock, port failure, export restrictions, labour disruption, crop disease, animal disease, cyberattack, financial stress, and household income shock.</p>
+
+          <h3>Resilience capacity payments</h3>
+          <p>Farms, processors, cold stores, seed producers, compost operators, controlled-environment growers, logistics firms, and community kitchens should be paid for readiness, not only delivered output. The logic is analogous to electricity capacity markets. A system pays for availability because failure costs exceed preparedness costs.</p>
+
+          <h3>Public procurement as anchor demand</h3>
+          <p>Schools, hospitals, care homes, prisons, defence estates, and public kitchens should become anchor buyers for nutritious, regional, soil-building, and resilient production. Procurement converts resilience from an aspiration into bankable demand.</p>
+
+          <h3>Bioregional resilience bonds</h3>
+          <p>Public, civic, and institutional investors should finance soil restoration, protected horticulture, local processing, water infrastructure, seed systems, composting, anaerobic digestion, cold storage, food hubs, and emergency distribution through long-term resilience bonds. Returns can be justified through avoided emergency costs, lower import exposure, reduced health burdens, lower flood and drought damage, stronger local economies, and reduced food-price volatility.</p>
+
+          <h3>Farmer transition guarantees</h3>
+          <p>Farmers cannot carry the financial risk of land repair alone. Soil rebuilding, agroforestry, perennial crops, lower-input systems, and diversified production often require upfront cost, new skills, new equipment, and delayed returns. Transition income, concessional finance, guarantees, technical support, insurance redesign, and procurement contracts are core security tools.</p>
+
+          <h3>Targeted affordability protection</h3>
+          <p>Because vulnerability is unequal, nutrition continuity cannot rely on market clearing alone. Low-income households need automatic stabilisers: nutrition credits, targeted transfers, school meals, healthy food baskets, public kitchens, subsidised fresh food, and emergency support. IMF guidance on energy and food price shocks favours targeted support over broad, distortionary subsidies when governments need to protect vulnerable households while preserving price signals.<sup><a href="#s14">14</a></sup></p>
+        </section>
+
+        <section id="macro">
+          <div class="section-head">
+            <div class="section-number">10</div>
+            <h2>Macroeconomic and monetary-policy frame</h2>
+          </div>
+          <p class="lead">Food shocks are not ordinary inflation events. When prices rise because of drought, fertiliser disruption, energy volatility, logistics breakdown, crop disease, or labour shortage, higher interest rates do not directly produce food.</p>
+          <p>Monetary policy can reduce aggregate demand. It cannot rebuild soil, restore water cycles, train horticultural labour, manufacture fertiliser, add cold storage, or replenish reserves. That does not make monetary policy irrelevant. It means fiscal, monetary, industrial, health, agricultural, and emergency policy need a shared food-resilience lens.</p>
+          <p>The key distinction is between consumption support that only suppresses price signals and investment that expands future supply, redundancy, land function, and affordability. Nutrition-continuity investment should be treated as productive resilience capital, not merely as agricultural subsidy.</p>
+          <p>A mature macro frame would monitor food, fertiliser, energy, water, labour, logistics, and household food access as systemic stability variables. It would distinguish between emergency household protection, liquidity support for strategic firms, and long-term capital expenditure for resilience.</p>
+        </section>
+
+        <section id="investment-gap">
+          <div class="section-head">
+            <div class="section-number">11</div>
+            <h2>The investment gap</h2>
+          </div>
+          <p class="lead">Volatility is arriving now. Many of the deepest solutions pay off slowly. That timing mismatch is the central investment problem.</p>
+          <p>Some interventions can protect households within months: cash transfers, school meals, reserves, emergency kitchens, procurement, fertiliser-risk monitoring, liquidity support, and import-risk mapping. Others take years: protected horticulture, local processing, composting, seed systems, labour training, regional food hubs, and input-substitution programmes. The slowest assets take decades: soil rebuilding, biodiversity recovery, perennial landscapes, farmer succession, rehydrated catchments, and dietary culture change.</p>
+
+          <div class="diagram-block" role="img" aria-label="Diagram of investment timing gap">
+            <div class="diagram-header">
+              <div class="diagram-title">DIAGRAM 03 / INVESTMENT GAP</div>
+              <div class="diagram-note">// Volatility is active before the deepest payoffs arrive. Capacity finance bridges the gap.</div>
+            </div>
+            <svg viewBox="0 0 1080 540" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="hatch-gap" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                  <rect width="9" height="9" fill="#192640" />
+                  <line x1="0" y1="0" x2="0" y2="9" stroke="#F27F3D" stroke-width="1.5" />
+                </pattern>
+              </defs>
+              <line x1="98" y1="438" x2="990" y2="438" stroke="#FFFFFF" stroke-width="1.5" />
+              <text x="98" y="466" fill="#F27F3D" class="svg-small">0</text>
+              <text x="276" y="466" fill="#F27F3D" class="svg-small">24 months</text>
+              <text x="470" y="466" fill="#F27F3D" class="svg-small">3 years</text>
+              <text x="662" y="466" fill="#F27F3D" class="svg-small">7 years</text>
+              <text x="900" y="466" fill="#F27F3D" class="svg-small">20 years</text>
+
+              <rect x="98" y="78" width="178" height="82" fill="#F27F3D" stroke="#FFFFFF" stroke-width="1.5" />
+              <text x="187" y="113" text-anchor="middle" fill="#FFFFFF" class="svg-label">volatility active</text>
+              <text x="187" y="137" text-anchor="middle" fill="#FFFFFF" class="svg-small">price / climate / access</text>
+
+              <rect x="98" y="248" width="240" height="62" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1.5" />
+              <text x="120" y="286" fill="#192640" class="svg-label">access stabilisers</text>
+
+              <rect x="276" y="318" width="260" height="62" fill="#192640" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="9 6" />
+              <text x="298" y="356" fill="#FFFFFF" class="svg-label">near-term capacity</text>
+
+              <rect x="470" y="216" width="282" height="62" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1.5" />
+              <text x="492" y="254" fill="#192640" class="svg-label">production buffers</text>
+
+              <rect x="662" y="146" width="328" height="62" fill="url(#hatch-gap)" stroke="#F27F3D" stroke-width="1.5" />
+              <text x="684" y="184" fill="#FFFFFF" class="svg-label">slow ecological payoff</text>
+
+              <path d="M187 160 L187 248" fill="none" stroke="#FFFFFF" stroke-width="1.5" />
+              <path d="M338 310 L338 318" fill="none" stroke="#FFFFFF" stroke-width="1.5" />
+              <path d="M536 278 L536 318" fill="none" stroke="#FFFFFF" stroke-width="0.75" stroke-dasharray="6 6" />
+              <path d="M752 208 L752 438" fill="none" stroke="#FFFFFF" stroke-width="0.75" stroke-dasharray="6 6" />
+
+              <text x="116" y="72" fill="#FFFFFF" class="svg-mono">[known] stress already observable in food, fertiliser, and climate indicators.</text>
+              <text x="598" y="120" fill="#FFFFFF" class="svg-mono">[inference] public finance must hold the bridge while deep assets mature.</text>
+            </svg>
+          </div>
+
+          <table class="layer-table">
+            <thead><tr><th>Horizon</th><th>Priority</th><th>Capacity created</th></tr></thead>
+            <tbody>
+              <tr><td>0-24 months</td><td>Emergency food access, targeted transfers, school meals, reserves, fertiliser-risk monitoring, liquidity support, import-risk mapping, public kitchens.</td><td>Household protection and short-term stability.</td></tr>
+              <tr><td>1-3 years</td><td>Protected horticulture, local processing, composting, seed systems, procurement reform, labour training, regional food hubs, input-substitution programmes.</td><td>Reduced exposure to supply and input shocks.</td></tr>
+              <tr><td>3-7 years</td><td>Agroforestry establishment, alternative protein capacity, water-system repair, regional cold chains, semi-controlled agriculture, circular fertility systems.</td><td>Production diversity and regional resilience.</td></tr>
+              <tr><td>7-20 years</td><td>Soil rebuilding, biodiversity recovery, perennial landscapes, farmer succession, rehydrated catchments, cultural dietary transition, deep bioregional resilience.</td><td>Long-term carrying capacity.</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="governance">
+          <div class="section-head">
+            <div class="section-number">12</div>
+            <h2>Governance model</h2>
+          </div>
+          <p class="lead">Nutrition continuity needs a mandate that crosses agriculture, health, climate, water, energy, trade, finance, planning, procurement, and emergency management.</p>
+          <p>Each country or region should establish a Bioregional Nutrition Security Authority, or equivalent cross-government function. It would not replace markets. It would set the resilience floor beneath them.</p>
+
+          <div class="diagram-block" role="img" aria-label="Diagram of governance loop">
+            <div class="diagram-header">
+              <div class="diagram-title">DIAGRAM 04 / BIOREGIONAL NUTRITION SECURITY AUTHORITY</div>
+              <div class="diagram-note">// Authority acts as field precondition. Procurement, reserves, affordability, and land repair feed a yearly shock test.</div>
+            </div>
+            <svg viewBox="0 0 1080 620" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="arrow-mid" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                  <path d="M0,0 L0,6 L9,3 z" fill="#F27F3D" />
+                </marker>
+              </defs>
+              <rect x="365" y="238" width="350" height="120" fill="#192640" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="9 6" />
+              <text x="540" y="286" text-anchor="middle" fill="#FFFFFF" class="svg-label">Bioregional Nutrition</text>
+              <text x="540" y="313" text-anchor="middle" fill="#FFFFFF" class="svg-label">Security Authority</text>
+              <text x="540" y="338" text-anchor="middle" fill="#F27F3D" class="svg-small">field node / precondition</text>
+
+              <rect x="80" y="78" width="242" height="80" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1.5" />
+              <text x="201" y="113" text-anchor="middle" fill="#192640" class="svg-label">early-warning</text>
+              <text x="201" y="137" text-anchor="middle" fill="#192640" class="svg-small">dashboard</text>
+
+              <rect x="758" y="78" width="242" height="80" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1.5" />
+              <text x="879" y="113" text-anchor="middle" fill="#192640" class="svg-label">public procurement</text>
+              <text x="879" y="137" text-anchor="middle" fill="#192640" class="svg-small">anchor demand</text>
+
+              <rect x="80" y="270" width="242" height="80" fill="#F27F3D" stroke="#FFFFFF" stroke-width="1.5" />
+              <text x="201" y="305" text-anchor="middle" fill="#FFFFFF" class="svg-label">shock test</text>
+              <text x="201" y="329" text-anchor="middle" fill="#FFFFFF" class="svg-small">3 plausible failures</text>
+
+              <rect x="758" y="270" width="242" height="80" fill="#192640" stroke="#FFFFFF" stroke-width="1.5" />
+              <text x="879" y="305" text-anchor="middle" fill="#FFFFFF" class="svg-label">strategic reserves</text>
+              <text x="879" y="329" text-anchor="middle" fill="#FFFFFF" class="svg-small">nutrition basket</text>
+
+              <rect x="80" y="462" width="242" height="80" fill="#192640" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="9 6" />
+              <text x="201" y="497" text-anchor="middle" fill="#FFFFFF" class="svg-label">land + water repair</text>
+              <text x="201" y="521" text-anchor="middle" fill="#FFFFFF" class="svg-small">capital plan</text>
+
+              <rect x="758" y="462" width="242" height="80" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1.5" />
+              <text x="879" y="497" text-anchor="middle" fill="#192640" class="svg-label">affordability</text>
+              <text x="879" y="521" text-anchor="middle" fill="#192640" class="svg-small">automatic stabilisers</text>
+
+              <line x1="322" y1="118" x2="365" y2="252" stroke="#F27F3D" stroke-width="1.5" marker-end="url(#arrow-mid)" />
+              <line x1="758" y1="118" x2="715" y2="252" stroke="#F27F3D" stroke-width="1.5" marker-end="url(#arrow-mid)" />
+              <line x1="322" y1="310" x2="365" y2="310" stroke="#F27F3D" stroke-width="1.5" marker-end="url(#arrow-mid)" />
+              <line x1="758" y1="310" x2="715" y2="310" stroke="#F27F3D" stroke-width="1.5" marker-end="url(#arrow-mid)" />
+              <line x1="322" y1="502" x2="365" y2="344" stroke="#F27F3D" stroke-width="1.5" marker-end="url(#arrow-mid)" />
+              <line x1="758" y1="502" x2="715" y2="344" stroke="#F27F3D" stroke-width="1.5" marker-end="url(#arrow-mid)" />
+
+              <text x="398" y="426" fill="#FFFFFF" class="svg-mono">[governance test] no single ministry owns nutrition continuity today.</text>
+              <text x="398" y="448" fill="#FFFFFF" class="svg-mono">Authority coordinates the floor; markets operate above it.</text>
+            </svg>
+          </div>
+
+          <h3>Annual shock test</h3>
+          <p>The authority's yearly test should be:</p>
+          <div class="principle">Under the next three plausible compound shocks, can this region still feed people nutritiously, affordably, and fairly?</div>
+          <p>Each test should include at least one climate shock, one input or logistics shock, and one household-access shock. The authority should publish the capability gap and the investment plan required to close it.</p>
+
+          <h3>Core responsibilities</h3>
+          <ul>
+            <li>national and regional nutrition-continuity assessments;</li>
+            <li>bioregional food-system mapping;</li>
+            <li>strategic reserve planning;</li>
+            <li>public procurement reform;</li>
+            <li>input dependency reduction;</li>
+            <li>soil and water restoration investment;</li>
+            <li>labour and skills planning;</li>
+            <li>controlled-environment strategy;</li>
+            <li>protein diversification;</li>
+            <li>affordability protection;</li>
+            <li>early-warning dashboards;</li>
+            <li>crisis simulation exercises.</li>
+          </ul>
+        </section>
+
+        <section id="innovation">
+          <div class="section-head">
+            <div class="section-number">13</div>
+            <h2>Innovation agenda</h2>
+          </div>
+          <p class="lead">The required innovation agenda is not only food technology. It spans biology, infrastructure, finance, governance, logistics, energy, data, and labour.</p>
+          <div class="work-packages">
+            <div class="package"><div class="code-label">INNOVATION / ENERGY</div><h4>Modular energy for food infrastructure</h4><p>Micro and modular energy systems for farms, greenhouses, cold chains, water systems, local processing, seedling nurseries, emergency kitchens, and community food hubs. Micro-turbines may be relevant where heat, power, and reliability can be combined. The test is resilience-per-unit-energy, not novelty.</p></div>
+            <div class="package"><div class="code-label">INNOVATION / ROBOTICS</div><h4>Autonomy for labour bottlenecks</h4><p>Autonomous and semi-autonomous systems for weeding, harvesting, crop monitoring, protected cropping, soil sampling, pest scouting, and logistics. Robotics should be paired with maintenance training and repair sovereignty; otherwise it becomes another supply-chain dependency.</p></div>
+            <div class="package"><div class="code-label">INNOVATION / FERTILITY</div><h4>Circular nutrient infrastructure</h4><p>Regional composting, anaerobic digestion, nutrient recovery from wastewater, manure logistics, biochar from genuine residues, local soil testing, and fertility budgets that reduce exposure to imported nitrogen and volatile gas markets.</p></div>
+            <div class="package"><div class="code-label">INNOVATION / DATA</div><h4>Forecasting and operating intelligence</h4><p>AI-supported crop-suitability modelling, pest forecasting, yield-risk mapping, fertiliser-risk alerts, water-stress dashboards, and affordability tracking. The output should be operational decisions, not dashboards for their own sake.</p></div>
+            <div class="package"><div class="code-label">INNOVATION / PROTEIN</div><h4>Diversified protein platforms</h4><p>Pulses, plant proteins, mycoprotein, microbial protein, algae, fermentation-derived ingredients, aquaculture, and lower-impact animal protein where ecologically appropriate. The test is nutrition, cost, energy, land, safety, acceptance, and resilience.</p></div>
+            <div class="package"><div class="code-label">INNOVATION / FINANCE</div><h4>Resilience finance instruments</h4><p>Capacity payments, procurement-backed contracts, resilience bonds, transition guarantees, insurance redesign, reserve finance, and social-protection triggers tied to food inflation and diet-quality indicators.</p></div>
+          </div>
+        </section>
+
+        <section id="measurement">
+          <div class="section-head">
+            <div class="section-number">14</div>
+            <h2>Measurement framework</h2>
+          </div>
+          <p class="lead">A nutrition-continuity system must measure resilience directly. Tonnes and prices are necessary but incomplete.</p>
+          <table class="risk-table">
+            <thead><tr><th>Indicator class</th><th>Measures</th><th>Why it matters</th></tr></thead>
+            <tbody>
+              <tr><td>exposure</td><td>Imported fertiliser dependency; imported feed dependency; diesel and gas dependency; port and shipping exposure; single-supplier exposure; crop concentration; export-restriction exposure; cold-chain fragility.</td><td>Shows where the system can fail from outside pressure.</td></tr>
+              <tr><td>ecological function</td><td>Soil organic matter; soil structure; erosion; water infiltration; water retention; biodiversity; pollinator abundance; salinity; nutrient leakage; catchment health.</td><td>Tracks the land's capacity to buffer climate stress.</td></tr>
+              <tr><td>nutrition</td><td>Affordability of healthy diets; food-price inflation by income group; protein access; fresh produce access; micronutrient gaps; child nutrition; maternal nutrition; diet diversity.</td><td>Prevents calorie sufficiency from hiding diet-quality failure.</td></tr>
+              <tr><td>resilience capacity</td><td>Days of reserves; regional processing capacity; seed availability; protected growing area; storage capacity; backup energy; skilled labour availability; emergency kitchen capacity; logistics redundancy.</td><td>Measures readiness before failure, not only response after failure.</td></tr>
+              <tr><td>legitimacy</td><td>Household trust; farmer viability; public access; cultural acceptability; regional fairness; perceived protection during shocks.</td><td>Food systems fail politically before they fail materially in many contexts.</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="roadmap">
+          <div class="section-head">
+            <div class="section-number">15</div>
+            <h2>Implementation roadmap</h2>
+          </div>
+          <p class="lead">The transition should be staged so immediate access protection, medium-term capacity, and long-term land repair move together.</p>
+          <h3>0-24 months: stabilise access and map exposure</h3>
+          <p>Priorities: targeted transfers, school meals, emergency food baskets, public kitchens, strategic reserves, fertiliser-risk monitoring, liquidity support for strategic farms and processors, import-risk mapping, reserve audits, and a first nutrition-continuity shock test.</p>
+
+          <h3>1-3 years: reduce input and logistics dependency</h3>
+          <p>Priorities: protected horticulture, composting, anaerobic digestion, seed systems, local processing, regional cold storage, public procurement reform, labour training, soil testing, circular nutrient infrastructure, and early-warning dashboards.</p>
+
+          <h3>3-7 years: build resilient production capacity</h3>
+          <p>Priorities: agroforestry establishment, semi-controlled agriculture at scale, alternative protein capacity, regional food hubs, water-system repair, climate-adjusted cropping, protected nurseries, and local processing networks.</p>
+
+          <h3>7-20 years: rebuild the bioregion</h3>
+          <p>Priorities: soil rebuilding, biodiversity recovery, perennial landscapes, catchment rehydration, farmer succession, civic food culture, dietary transition, measured land recovery, and mature nutrition-continuity governance.</p>
+        </section>
+
+        <section id="risks">
+          <div class="section-head">
+            <div class="section-number">16</div>
+            <h2>Risks and traps</h2>
+          </div>
+          <table class="risk-table">
+            <thead><tr><th>Trap</th><th>Failure mode</th><th>Correction</th></tr></thead>
+            <tbody>
+              <tr><td>tech-only response</td><td>Vertical farms, robotics, AI, and fermentation are treated as substitutes for soil, water, biodiversity, farmers, and land function.</td><td>Assign technology to specific failure modes. Keep land repair as the base layer.</td></tr>
+              <tr><td>localism without sufficiency</td><td>Local food is assumed to be automatically resilient, affordable, or nutritionally complete.</td><td>Use local production where it creates capacity. Keep resilient trade, reserves, and processing.</td></tr>
+              <tr><td>carbon-only metrics</td><td>Policy optimises for emissions while ignoring nutrition, water, labour, affordability, biodiversity, and access.</td><td>Use multi-indicator nutrition-continuity metrics.</td></tr>
+              <tr><td>market-only transition</td><td>Prices allocate scarcity to households with the least ability to pay.</td><td>Use targeted stabilisers, procurement, capacity payments, and reserves.</td></tr>
+              <tr><td>calorie-only security</td><td>Bulk calories mask protein, micronutrient, infant nutrition, and diet-diversity failure.</td><td>Define reserves and access programmes around nutritional adequacy.</td></tr>
+              <tr><td>unmeasured land claims</td><td>Farms claim land repair without metrics.</td><td>Tie support to soil organic matter, infiltration, biodiversity, nutrient cycling, input reduction, yield stability, farmer income, and nutritional output.</td></tr>
+              <tr><td>automation dependency</td><td>Robotics replaces one labour dependency with proprietary software, imported parts, and fragile maintenance.</td><td>Pair automation with repair capacity, open standards where possible, and local technical training.</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="pilot">
+          <div class="section-head">
+            <div class="section-number">17</div>
+            <h2>Pilot concept: Bioregional Nutrition Continuity Demonstrator</h2>
+          </div>
+          <p class="lead">A pilot should test the whole stack in one bioregion rather than funding isolated projects. The output is not a farm trial. It is a continuity capability.</p>
+          <h3>Scope</h3>
+          <p>Select one bioregion with identifiable exposure: imported fertiliser, food-price stress, water risk, labour constraints, weak processing, and vulnerable households. Define its nutritional floor, map its dependency structure, test three compound shocks, and build a financed resilience portfolio.</p>
+
+          <h3>Work packages</h3>
+          <div class="work-packages">
+            <div class="package"><div class="code-label">WP01 / DIAGNOSTIC</div><h4>Nutrition-continuity baseline</h4><p>Map calories, protein, micronutrients, household access, diet quality, reserves, imports, fertiliser dependency, feed dependency, processing, cold chain, labour, soil, water, and logistics.</p></div>
+            <div class="package"><div class="code-label">WP02 / SHOCK TEST</div><h4>Compound scenario analysis</h4><p>Run at least three scenarios: climate shock plus fertiliser spike; port disruption plus household income shock; animal disease plus energy shock. Estimate diet, price, and reserve impacts.</p></div>
+            <div class="package"><div class="code-label">WP03 / PORTFOLIO</div><h4>Investment stack</h4><p>Design interventions across land repair, protected horticulture, fertility systems, local processing, reserves, public procurement, protein diversification, affordability protection, and early warning.</p></div>
+            <div class="package"><div class="code-label">WP04 / PROCUREMENT</div><h4>Anchor demand</h4><p>Use schools, hospitals, care homes, and public kitchens as the first demand base for local nutritious production and transition contracts.</p></div>
+            <div class="package"><div class="code-label">WP05 / FINANCE</div><h4>Capacity payments and bonds</h4><p>Create readiness contracts for farms, processors, food hubs, cold stores, emergency kitchens, seed producers, and protected growers. Prepare a bioregional resilience bond.</p></div>
+            <div class="package"><div class="code-label">WP06 / OPERATIONS</div><h4>Dashboard and governance</h4><p>Build the operating dashboard, assign public responsibilities, define trigger thresholds, and run annual exercises with farmers, retailers, processors, health systems, and civic organisations.</p></div>
+          </div>
+
+          <h3>Deliverables</h3>
+          <ul>
+            <li>Bioregional nutrition-continuity map.</li>
+            <li>Minimum nutritious-diet floor and reserve basket.</li>
+            <li>Compound-shock risk register.</li>
+            <li>Investment portfolio by time horizon.</li>
+            <li>Procurement plan for public institutions.</li>
+            <li>Fertility and input-sovereignty plan.</li>
+            <li>Labour and skills plan.</li>
+            <li>Early-warning dashboard specification.</li>
+            <li>Financing plan including capacity payments and resilience bond structure.</li>
+            <li>Year-one operational test.</li>
+          </ul>
+        </section>
+
+        <section id="conclusion">
+          <div class="section-head">
+            <div class="section-number">18</div>
+            <h2>Conclusion</h2>
+          </div>
+          <p class="lead">The next food-system challenge is not simply to produce more food. It is to maintain nutrition continuity in a world of compound volatility.</p>
+          <p>This requires a new settlement between ecology, technology, markets, and the state. The production base must regenerate land function. Fertility must become less dependent on fossil volatility. Food systems must become more distributed. Semi-controlled and fully controlled environments must be used strategically. Protein supply must diversify. Strategic reserves must be redesigned around nutrition, not only calories. Public procurement must become an anchor for capacity. Finance must bridge the gap between immediate volatility and long-term land payoff. Social protection must prevent food-price shocks from becoming hunger, unrest, or social-contract breakdown.</p>
+          <div class="principle">The system target is a portfolio food system: land-based at the base, distributed in structure, buffered where necessary, nutrition-led, protected for the vulnerable, and governed as critical security infrastructure.</div>
+          <p>The defining question for governments, investors, cities, regions, and institutions is now operational:</p>
+          <div class="callout">
+            <div class="eyebrow">FINAL TEST</div>
+            <p>Can we guarantee adequate nutrition through the shocks that are becoming normal?</p>
+          </div>
+          <p>The answer will not come from one model of agriculture, one technology, one diet, or one market reform. It will come from the stack: ecological repair, soil-building production, distributed civic capacity, protected growing, controlled production for specific functions, protein diversity, reserves, early warning, affordability protection, and security economics.</p>
+        </section>
+
+        <section id="sources" class="break-before">
+          <div class="section-head">
+            <div class="section-number">19</div>
+            <h2>Sources and evidence base</h2>
+          </div>
+          <p>The paper uses public sources available as of June 2026. Links are included for verification. Uncertain claims are marked in-line in the method register.</p>
+          <ol class="source-list">
+            <li id="s1"><span>01</span><a href="https://www.ipcc.ch/srccl/chapter/chapter-5/">IPCC, Special Report on Climate Change and Land, Chapter 5: Food Security.</a> Climate change negatively affects the four food-security pillars: availability, access, utilisation, and stability.</li>
+            <li id="s2"><span>02</span><a href="https://www.wfp.org/news/acute-food-insecurity-and-malnutrition-remain-alarmingly-high-crises-deepen-un-eu-and-partners">WFP / Global Report on Food Crises 2026 release.</a> About 266 million people in 47 countries and territories faced high acute food insecurity in 2025.</li>
+            <li id="s3"><span>03</span><a href="https://wmo.int/news/media-centre/wmo-prepare-el-nino">World Meteorological Organization, “WMO: Prepare for El Niño,” 2 June 2026.</a> El Niño conditions developing; 80% likelihood during June-August 2026; near or above 90% probability of continuation until at least November; WMO does not use “super El Niño” as a standard classification.</li>
+            <li id="s4"><span>04</span><a href="https://www.worldbank.org/en/topic/agriculture/brief/food-security-update">World Bank, Food Security Update, last updated 1 June 2026.</a> Global food and nutrition insecurity rising despite broadly stable staples; fertiliser price stress; 46% month-on-month urea rise; 31% projected average fertiliser-price rise in 2026; food inflation outpaced overall inflation in 14% of countries with data.</li>
+            <li id="s5"><span>05</span><a href="https://www.unep.org/news-and-stories/story/un-summit-puts-global-spotlight-land-degradation">UNEP, “UN summit puts global spotlight on land degradation,” 2024.</a> Up to 40% of global land is degraded, directly affecting half of humanity, citing UNCCD.</li>
+            <li id="s6"><span>06</span><a href="https://www.climatecentral.org/climate-matters/warming-planting-zones-2025">Climate Central, “Warming Planting Zones,” 2025.</a> Plant hardiness zones shifting north and upslope; past and projected shifts in U.S. locations; cited study estimates annual minimum temperature zones shifting north about 13 miles per decade under continued pollution.</li>
+            <li id="s7"><span>07</span><a href="https://www.iea.org/reports/ammonia-technology-roadmap/executive-summary">IEA, Ammonia Technology Roadmap, Executive Summary.</a> Ammonia production relies heavily on fossil fuels and accounts for around 2% of total final energy consumption.</li>
+            <li id="s8"><span>08</span><a href="https://www.foodsecurityportal.org/tools/COVID-19-food-trade-policy-tracker">IFPRI Food Security Portal, Food and Fertilizer Export Restrictions Tracker.</a> Tracks food and fertiliser export restrictions and their impacts on imported calories.</li>
+            <li id="s9"><span>09</span><a href="https://www.oecd.org/en/publications/attracting-new-farmers-for-the-future-of-agriculture_1ca2efb6-en/full-report.html">OECD, Attracting New Farmers for the Future of Agriculture, 2025.</a> More than a quarter of agricultural workers in OECD member countries are over 55; agriculture faces skills and human-capital constraints.</li>
+            <li id="s10"><span>10</span><a href="https://www.fao.org/publications/fao-flagship-publications/the-state-of-food-security-and-nutrition-in-the-world/en">FAO et al., The State of Food Security and Nutrition in the World 2025.</a> Elevated food-price inflation undermines purchasing power and access to healthy diets, especially for low-income populations.</li>
+            <li id="s11"><span>11</span><a href="https://www.nature.com/articles/s44383-025-00006-4">Wang et al., Nature, 2025, controlled environment agriculture review.</a> CEA can improve resilience through diversified sources, productivity, water conservation, and protection against climate uncertainty; reported crop yields can be 10-100 times open-field yields in some contexts.</li>
+            <li id="s12"><span>12</span><a href="https://www.nature.com/articles/s44264-025-00091-z">Mills et al., Nature, 2025, meta-analysis of indoor agriculture energy demand.</a> CEA provides less than 1% of U.S. food crops while consuming more energy than all open-field cultivation.</li>
+            <li id="s13"><span>13</span><a href="https://www.fao.org/in-action/sustainable-and-circular-bioeconomy/resources/news/details/fr/c/1459357/">FAO, alternative proteins and Codex guidance.</a> Alternative proteins include microbial proteins such as microalgae and mycoproteins, insect-based proteins, cell-based meat, plant-based meat substitutes, and dairy alternatives.</li>
+            <li id="s14"><span>14</span><a href="https://www.imf.org/en/blogs/articles/2026/05/20/responding-to-the-energy-and-food-price-shock-getting-the-policy-details-right">IMF Blog, 20 May 2026, responding to energy and food price shocks.</a> Targeted support can protect vulnerable households while limiting distortions and fiscal pressure relative to broad subsidies.</li>
+            <li id="s15"><span>15</span><a href="https://xco-style-guide-woad.vercel.app/diagrams">xCO diagrammatic grammar.</a> Rectangles are the atomic unit; hatching encodes weight; structural and texture line weights; RiskNode, OptionNode, FieldNode; marginal annotations mark uncertainty.</li>
+          </ol>
+        </section>
+
+        <footer class="footer-meta">
+          <div>Nutrition Continuity in an Age of Systemic Volatility / XCO dusk preset / three-colour embedded HTML.</div>
+          <div>All diagrams are inline SVG. No photographic assets. No external style dependencies. Text retains evidence links for verification.</div>
+        </footer>
+      </article>
+    </main>
+  </div>
+</body>
+</html>
